@@ -37,7 +37,32 @@ let buttonEditSecondary = cardSecondary.querySelector(".btn-outline-secondary");
 buttonEditSecondary.addEventListener("click", green);
 
 //5
-let navbar = document.getElementsByClassName("navbar")[0];
+let navbar = document.querySelector("header");
+let linkTag = document.querySelector("link");
+let bootstrap = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
 navbar.addEventListener('dblclick', function (e) {
-    card.classList.toggle('large');
+    if (linkTag.href != bootstrap){
+        linkTag.href = bootstrap;
+    }else{
+        linkTag.href = "#";
+    }
   });
+
+  //6 ???
+
+  //7 !! pb with click?
+  let parent = document.querySelectorAll(".row")[1];
+  let arrow = document.querySelector(".btn-secondary");
+  arrow.addEventListener("click", function(e){
+      parent.insertBefore(parent.lastChild, parent.firstChild);
+  })
+
+  //8
+  let arrowLeft = document.querySelector(".btn-primary");
+ console.log(arrowLeft);
+ arrowLeft.href = "#";
+  arrowLeft.addEventListener("click", function(e){
+      parent.insertBefore(parent.firstChild, parent.lastChild.nextSibling);
+  })
+
+  //9
