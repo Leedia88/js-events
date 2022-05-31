@@ -48,21 +48,36 @@ navbar.addEventListener('dblclick', function (e) {
     }
   });
 
-  //6 ???
-
+  //6
+  let cards = document.querySelectorAll(".card");
+  let image = cards[0].querySelector(".card-img-top");
+  let success = cards[0].querySelector(".btn-success");
+  let cardText = cards[0].querySelector(".card-text");
+  success.addEventListener("mouseover", function modif(e){
+      if (image.style.width != "20%"){
+        image.style.width = "20%"
+      }
+      else {
+        image.style.width = "100%"
+      }
+      cardText.classList.toggle("collapse");});
+  
   //7 !! pb with click?
   let parent = document.querySelectorAll(".row")[1];
   let arrow = document.querySelector(".btn-secondary");
   arrow.addEventListener("click", function(e){
-      parent.insertBefore(parent.lastChild, parent.firstChild);
-  })
+      let last = parent.lastElementChild;
+      let first = parent.firstElementChild;
+      parent.insertBefore(last, first);
+  });
 
   //8
-  let arrowLeft = document.querySelector(".btn-primary");
+let arrowLeft = document.querySelector(".btn-primary");
  console.log(arrowLeft);
  arrowLeft.href = "#";
   arrowLeft.addEventListener("click", function(e){
-      parent.insertBefore(parent.firstChild, parent.lastChild.nextSibling);
+      parent.insertBefore(parent.firstElementChild, parent.lastChild.nextElementSibling);
+      
   })
 
   //9
